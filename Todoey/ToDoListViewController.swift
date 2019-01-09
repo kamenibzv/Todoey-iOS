@@ -12,19 +12,25 @@ class ToDoListViewController: UITableViewController {
 
     var itemsToDo =  [Item]()
     
+    // Filepath to use for NSCoder
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let newItem = Item(toDoTitle: "Get Food")
-        let newItem1 = Item(toDoTitle: "Text p")
-        let newItem2 = Item(toDoTitle: "Go home")
-        let newItem3 = Item(toDoTitle: "Chat with them")
+        loadItems()
         
-        itemsToDo.append(newItem)
-        itemsToDo.append(newItem1)
-        itemsToDo.append(newItem2)
-        itemsToDo.append(newItem3)
+//        // Items to add to the to do list
+//        let newItem = Item(toDoTitle: "Get Food")
+//        let newItem1 = Item(toDoTitle: "Text p")
+//        let newItem2 = Item(toDoTitle: "Go home")
+//        let newItem3 = Item(toDoTitle: "Chat with them")
+//
+//        itemsToDo.append(newItem)
+//        itemsToDo.append(newItem1)
+//        itemsToDo.append(newItem2)
+//        itemsToDo.append(newItem3)
         
     }
     
@@ -57,12 +63,12 @@ class ToDoListViewController: UITableViewController {
         // Sets the done value if the cell was clicked
         itemsToDo[indexPath.row].done = !itemsToDo[indexPath.row].done
         
-        tableView.reloadData()
+        saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //MARK - Add new items
+    //MARK - Add new items. When the add button is created
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -75,7 +81,8 @@ class ToDoListViewController: UITableViewController {
             
             self.itemsToDo.append(newItem)
             
-            self.tableView.reloadData()
+            self.saveItems()
+            
         }
         
         alert.addTextField { (alertTextField) in
@@ -87,6 +94,41 @@ class ToDoListViewController: UITableViewController {
         alert.addAction(action)
         
         present(alert , animated: true, completion: nil)
+    }
+    
+    //MARK - Create the encoders and decoders
+    
+    func saveItems() {
+        
+        // encoding the data and writing it to the p list
+
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(itemsToDo)
+            try data.write(to: dataFilePath!)
+            
+        } catch {
+            print("Error encoding array: \(error)")
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func loadItems() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            
+            do {
+                
+            itemsToDo = try decoder.decode([Item].self, from: data)
+                
+            } catch {
+                print("Error encoding array: \(error)")
+            }
+        }
+
     }
 }
 
