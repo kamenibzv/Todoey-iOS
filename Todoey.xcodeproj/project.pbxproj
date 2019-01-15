@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		240B568821E5EDDC005F1544 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 240B568621E5EDDB005F1544 /* DataModel.xcdatamodeld */; };
 		240B56AD21E87443005F1544 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B56AC21E87442005F1544 /* CategoryViewController.swift */; };
+		240B56AF21E89A64005F1544 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B56AE21E89A64005F1544 /* Item.swift */; };
+		240B56B121E8A06F005F1544 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240B56B021E8A06F005F1544 /* Category.swift */; };
 		242260E921E16C0600147128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242260E821E16C0600147128 /* AppDelegate.swift */; };
 		242260EB21E16C0600147128 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242260EA21E16C0600147128 /* ToDoListViewController.swift */; };
 		242260EE21E16C0600147128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242260EC21E16C0600147128 /* Main.storyboard */; };
@@ -19,8 +20,9 @@
 
 /* Begin PBXFileReference section */
 		17EAF24FB94D4D487292659A /* Pods_Todoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		240B568721E5EDDB005F1544 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		240B56AC21E87442005F1544 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		240B56AE21E89A64005F1544 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		240B56B021E8A06F005F1544 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		242260E521E16C0600147128 /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		242260E821E16C0600147128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		242260EA21E16C0600147128 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +58,8 @@
 		240B568221E4A0BE005F1544 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				240B568621E5EDDB005F1544 /* DataModel.xcdatamodeld */,
+				240B56B021E8A06F005F1544 /* Category.swift */,
+				240B56AE21E89A64005F1544 /* Item.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -249,9 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				242260EB21E16C0600147128 /* ToDoListViewController.swift in Sources */,
-				240B568821E5EDDC005F1544 /* DataModel.xcdatamodeld in Sources */,
+				240B56AF21E89A64005F1544 /* Item.swift in Sources */,
 				242260E921E16C0600147128 /* AppDelegate.swift in Sources */,
 				240B56AD21E87443005F1544 /* CategoryViewController.swift in Sources */,
+				240B56B121E8A06F005F1544 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,19 +457,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		240B568621E5EDDB005F1544 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				240B568721E5EDDB005F1544 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 240B568721E5EDDB005F1544 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 242260DD21E16C0500147128 /* Project object */;
 }
